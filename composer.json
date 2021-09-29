@@ -1,6 +1,7 @@
 {
     "name": "nandhini/test-display",
     "description": "A short description of what your package does",
+	"license": "MIT",
     "require": {
         "php": ">=7.4",
         "nandhini/test-display": "1"
