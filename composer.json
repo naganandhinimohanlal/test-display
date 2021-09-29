@@ -3,6 +3,6 @@
     "description": "A short description of what your package does",
 	"license": "MIT",
     "require": {
-        "php": "^5.0",
+        "php": "5.0"
     }
 }
