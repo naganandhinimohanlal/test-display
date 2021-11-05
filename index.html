@@ -1,23 +1,4 @@
-<?php
-error_reporting(0);
-    /**
-    * The home page view
-    */
-    class IndexView
-    {
-
-        private $model;
-
-        private $controller;
-
-        function __construct($controller, $model)
-        {
-            $this->controller = $controller;
-
-            $this->model = $model;
-
-            ?>
-			<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -30,9 +11,7 @@ error_reporting(0);
         <link href="css/styles.css" rel="stylesheet" />
 		          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-   
-   </head>
+    </head>
     <body id="page-top">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-blue fixed-top" id="mainNav">
@@ -41,7 +20,7 @@ error_reporting(0);
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="#calculator">Calculator</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about">Calculator</a></li>
                         <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                     </ul>
@@ -53,17 +32,17 @@ error_reporting(0);
             <div class="container px-4 text-center">
                 <h1 class="fw-bolder">Welcome to Calculator</h1>
                 <p class="lead">Calculate your Loan and interest</p>
-                <a class="btn btn-lg btn-light" href="#calculator">Calculate Now</a>
+                <a class="btn btn-lg btn-light" href="#about">Calculate Now</a>
             </div>
         </header>
         <!-- About section-->
-        <section id="calculator">
+        <section id="about">
             <div class="container px-4">
                 <div class="row gx-4 justify-content-center">
                     <div class="col-lg-8">
                         <h2>Simple Credit Calculator</h2>
 						<div>
-                       <form name="calculate" method="post">
+                       <form>
   <div class="form-group row">
     <label for="credit" class="col-4 col-form-label">Text Field</label> 
     <div class="col-8">
@@ -102,54 +81,16 @@ error_reporting(0);
   </div> 
   <div class="form-group row">
     <div class="offset-4 col-8">
-      <button name="submit" type="submit"  class="btn btn-primary">Submit</button>
+      <button name="submit" type="submit" class="btn btn-primary">Submit</button>
     </div>
   </div>
 </form>
 </div>
 <div>
-	<script type="text/javascript">
-function calculatecredit() {
-	
- credit= document.getElementById("credit").value;
-  interest= Number(document.getElementById("interest").value);
-  term= Number(document.getElementById("term").value);
- //let payment;
-  i=Number(interest/100/12);
-  n=Number(term*12);	
- num=Number((1+i)^n);
-  number=Number(i*num);
- 
-   payment=(credit*number)/(num-1);
-alert(payment);
- 
-}
-</script>
-<?php
-
-	
-	$credit=$_POST["credit"];
-	$interest=$_POST["interest"];
-	$term=$_POST["term"];
-	 $i=($interest/100)/12;
-	$n=$term*12;
-	$num=pow((1+$i),$n);
-
-
-	 $payment=($credit*$i*$num)/($num-1)*1000;
-	 echo "Monthly Payment = ".round($payment,3).'<br/>';
-	 $payment= round($payment,3);
-	  $totalinterest=($payment*$n);
-	echo "Total Amount to be Paid along with interest=". $totalinterest;
-
-
-
-?>
-
-
+Monthly Payment = $ 1,887.12
 </div>
 <div>
-
+Total Interest Paid = $ 13,227.40
 </div>
                     </div>
                 </div>
@@ -187,18 +128,3 @@ alert(payment);
         <script src="js/scripts.js"></script>
     </body>
 </html>
-
-			<?php
-        }
-
-        public function index()
-        {
-            return $this->controller->sayWelcome();
-        }
-
-        public function action()
-        {
-            return $this->controller->takeAction();
-        }
-
-    }?>
